@@ -1,6 +1,10 @@
-#include <iostream>
+#include "Engine.h"
+
+using namespace sf;
+using namespace std;
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    Engine engine;
+    engine.run();
     return 0;
 }

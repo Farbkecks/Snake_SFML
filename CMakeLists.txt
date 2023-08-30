@@ -3,10 +3,12 @@ project(SFML_Snake)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(SFML_Snake src/main.cpp)
+add_executable(SFML_Snake src/main.cpp src/Engine.cpp src/draw.cpp)
 
-include_directories(headers /usr/include c:/SFML/include)
+#Warning check if correct Path
+include_directories(headers c:/SFML/include)
 
+#Warning check if correct Path
 set(SFML_ROOT c:/SFML)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
 find_package(SFML REQUIRED system window graphics)
@@ -21,6 +23,7 @@ file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 if (WIN32)
     file(GLOB BINARY_DEP_DLLS "${SFML_INCLUDE_DIR}/../bin/*.dll")
     file(COPY ${BINARY_DEP_DLLS} DESTINATION ${CMAKE_BINARY_DIR})
-    file(GLOB MINGW_DEP_DLLS "C:/mingw64/bin/*.dll")
+    #Warning check if correct Path
+    file(GLOB MINGW_DEP_DLLS "C:/mingw64_13.1.0/bin/*.dll")
     file(COPY ${MINGW_DEP_DLLS} DESTINATION ${CMAKE_BINARY_DIR})
 endif ()
