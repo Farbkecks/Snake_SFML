@@ -8,6 +8,8 @@ public:
     //functions
     Engine();
 
+    void input();
+
     void draw();
 
     void run();
