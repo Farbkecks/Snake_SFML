@@ -18,7 +18,7 @@ public:
     enum class Direction {
         UP, RIGHT, DOWN, LEFT
     };
-    enum GameState {
+    enum class GameState {
         RUNNING, PAUSED, GAMEOVER
     };
 private:
@@ -55,8 +55,8 @@ private:
 
     Time timeSinceLastMove;
 
-    int currentGameState;
-    int lastGameState; // For storing the last state the game was in when pausing.
+    GameState currentGameState;
+    GameState lastGameState; // For storing the last state the game was in when pausing.
 
 public:
 
