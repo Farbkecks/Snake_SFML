@@ -1,15 +1,32 @@
-#include "engine.h"
-
-using namespace sf;
-using namespace std;
+#include "engine.hpp"
 
 void Engine::draw() {
-    window.clear(Color::Black);
+  window.clear(Color::Black);
 
-    // Draw sanke sections
-    for (auto &section: snake) {
-        window.draw(section.getShape());
-    }
+  // Draw walls
+  for (auto & w : wallSections) {
+    window.draw(w.getShape());
+  }
 
-    window.display();
+  // Draw Apple
+  window.draw(apple.getSprite());
+
+  // Draw snake sections
+  for (auto & s : snake) {
+    window.draw(s.getShape());
+  }
+
+  // Draw Text
+  window.draw(titleText);
+  window.draw(currentLevelText);
+  window.draw(applesEatenText);
+  window.draw(scoreText);
+
+  // Draw GameOver
+  if (currentGameState == GameState::GAMEOVER) {
+    window.draw(gameOverText);
+    window.draw(pressEnterText);
+  }
+
+  window.display();
 }

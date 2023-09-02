@@ -1,31 +1,24 @@
-#include "snakesection.h"
+#include "snakesection.hpp"
 
-using namespace sf;
-using namespace std;
-
-SnakeSection::SnakeSection(sf::Vector2f startPosition) {
-    //TODO remove magic number
-    section.setSize(Vector2f(20, 20));
-    section.setFillColor(Color::Green);
-    section.setPosition(startPosition);
+SnakeSection::SnakeSection(Vector2f startPosition) {
+  section.setSize(Vector2f(20, 20));
+  section.setFillColor(Color::Green);
+  section.setPosition(startPosition);
+  position = startPosition;
 }
 
-sf::Vector2f SnakeSection::getPostion() {
-    return position;
+Vector2f SnakeSection::getPosition() {
+  return position;
 }
 
-void SnakeSection::setPostion(sf::Vector2f newPostion) {
-    position = newPostion;
+void SnakeSection::setPosition(Vector2f newPosition) {
+  position = newPosition;
 }
 
-sf::RectangleShape SnakeSection::getShape() {
-    return section;
+RectangleShape SnakeSection::getShape() {
+  return section;
 }
 
 void SnakeSection::update() {
-    section.setPosition(position);
+  section.setPosition(position);
 }
-
-
-
-

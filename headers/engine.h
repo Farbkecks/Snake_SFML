@@ -4,15 +4,23 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 
 #include <vector>
+#include <deque>
 
 #include "snakesection.h"
 
 class Engine {
+    enum Directions {
+        UP, RIGHT, DOWN, LEFT
+    };
 public:
     //functions
     Engine();
 
     void input();
+
+    void addDirection(int newDirections);
+
+    void update();
 
     void draw();
 
@@ -24,6 +32,7 @@ public:
 
 private:
     //functions
+    void handelFirstElementInQueue();
 
 private:
     //Window
@@ -31,6 +40,11 @@ private:
     sf::RenderWindow window;
     const unsigned int FPS = 60;
     static const sf::Time TimePerFrame;
+
     std::vector<SnakeSection> snake;
+    int snakeDirection;
+    std::deque<int> directionQueue; //queue for inputs
+    int speed;
+    sf::Time timeSinceLastMove;
 
 };

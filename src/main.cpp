@@ -1,10 +1,7 @@
-#include "engine.h"
-
-using namespace sf;
-using namespace std;
+#include "engine.hpp"
 
 int main() {
-    Engine engine;
-    engine.run();
-    return 0;
+  Engine engine;
+  engine.run();
+  return 0;
 }
