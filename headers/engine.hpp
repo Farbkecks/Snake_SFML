@@ -14,6 +14,13 @@ using namespace sf;
 using namespace std;
 
 class Engine {
+public:
+    enum class Direction {
+        UP, RIGHT, DOWN, LEFT
+    };
+    enum GameState {
+        RUNNING, PAUSED, GAMEOVER
+    };
 private:
     // Window
     Vector2f resolution;
@@ -23,8 +30,8 @@ private:
 
     vector<SnakeSection> snake;
 
-    int snakeDirection;
-    deque<int> directionQueue; // queue for direction key presses
+    Direction snakeDirection;
+    deque<Direction> directionQueue; // queue for direction key presses
     int speed;
     int sectionsToAdd; // how many sections to add to the snake
     int applesEatenThisLevel;
@@ -52,25 +59,31 @@ private:
     int lastGameState; // For storing the last state the game was in when pausing.
 
 public:
-    enum Direction { UP, RIGHT, DOWN, LEFT };
-    enum GameState { RUNNING, PAUSED, GAMEOVER };
+
     Engine();
 
     void input();
-    void addDirection(int newDirection);
+
+    void addDirection(Direction newDirection);
+
     void update();
+
     void draw();
 
     static void setupText(Text *textItem, const Font &font, const String &value, int size, Color colour);
 
     void newSnake();
+
     void addSnakeSection();
 
     void moveApple();
+
     void checkLevelFiles();
+
     void loadLevel(int levelNumber);
 
     void beginNextLevel();
+
     void startTheGame();
 
     void togglePause();

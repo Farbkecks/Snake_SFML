@@ -18,7 +18,7 @@ public:
 
     void input();
 
-    void addDirection(int newDirections);
+    void addDirection(Engine::Direction newDirections);
 
     void update();
 
